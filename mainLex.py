@@ -164,10 +164,10 @@ t_identifier = r'[a-z_][a-z_0-9]*'
 
 t_function = r'[a-z]\s|[a-z_][a-z_0-9]*([0-9]|[a-z])'
 
+<<<<<<< HEAD
 # Function 513
 # < Function > ::= < letra > | < Identifier > <letra> | < Identifier > < digito >
 # < letra > ::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z
-
 
 # def t_Bool(t):
 #     print(t)
@@ -190,7 +190,6 @@ def getlinha(pos):
     pos = int(pos)
     pos = math.floor(pos / tamlinha)
     return pos
-
 
 # Build the lexer
 lexer = lex.lex()
@@ -241,3 +240,55 @@ f = open("meuteste.LEX", "w")
 f.write(SaidaLex)
 f.close()
 print(SaidaLex)
+
+def executarLexico(data)
+    # Build the lexer
+    lexer = lex.lex()
+    tabelaSimbolos = []
+    tabelaSimboloscount = 600
+    #data = " Int batata = 3.5 float bb = 12.21e3 a_0 'a' Program If ( ) Bool Bool == \"stringtest\" + - = If ( -5 ) Bool Bool == + - = If (  ) Bool Bool == + - = While Int"
+
+
+    lexer.input(data)
+
+    Cabeçalho = '''
+    EQUIPE	E04	\n
+    COMPONENTES:     \n
+    Nome	Email	Telefone\n
+    Rafael Bessa Loureiro	xxx	xxx\n
+    Pedro De Carvalho Marcelo	xxxxx	xxx\n
+    Neilton Melgaço Lisboa Junior	xxx	xxx\n
+    '''
+    SaidaLex = Cabeçalho + "\n" + "tipo, Elemento lexico , Codigo , indicie tabela simb , linha  \n" 
+
+    # Tokenize
+    while True:
+        tok = lexer.token()
+        #tok lexpos, lineno,type,value
+        if not tok: #quando tok fica vazio 
+            break      # No more input
+
+        if tok.type in Dic_Reserved_Atom_Cod:
+            SaidaLex += tok.type + " , " + tok.value + " , " +  Dic_Reserved_Atom_Cod[tok.type] + " , " + "none"+" , "+  str(getlinha(tok.lexpos)) +"\n"
+        
+        elif tok.type in Dic_not_Reserved_Atom:
+            SaidaLex += tok.type + " , " +tok.value + " , " +  "none" + " , " + str(tabelaSimboloscount) +" , "+  str(getlinha(tok.lexpos)) +"\n"
+            tabelaSimbolos.append({
+                "tipo": str(tok.type),
+                "value":str(tok.value),
+                "indice":str(tabelaSimboloscount)
+            })
+            tabelaSimboloscount += 1
+            
+        else:
+            pass #caso n seja um atomo reservado, puxa a tabela de simbolos
+
+        
+        print(tok) # saida = token, simbolo, linha,coluna
+                    #linha tem que ser feita uma função especial
+
+    # f = open("meuteste.LEX", "w")
+    # f.write(SaidaLex)
+    # f.close()
+    print(SaidaLex)
+    return SaidaLex, lexer.token()
