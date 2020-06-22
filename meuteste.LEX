@@ -9,7 +9,7 @@ Rafael Bessa Loureiro	xxx	xxx
 
 Pedro De Carvalho Marcelo	xxxxx	xxx
 
-Neilton Melgaï¿½o Lisboa Junior	xxx	xxx
+Neilton Melgaço Lisboa Junior	xxx	xxx
 
 
 tipo, Elemento lexico , Codigo , indicie tabela simb , linha  
