@@ -164,7 +164,6 @@ t_identifier = r'[a-z_][a-z_0-9]*'
 
 t_function = r'[a-z]\s|[a-z_][a-z_0-9]*([0-9]|[a-z])'
 
-<<<<<<< HEAD
 # Function 513
 # < Function > ::= < letra > | < Identifier > <letra> | < Identifier > < digito >
 # < letra > ::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z
@@ -241,7 +240,7 @@ f.write(SaidaLex)
 f.close()
 print(SaidaLex)
 
-def executarLexico(data)
+def executarLexico(data):
     # Build the lexer
     lexer = lex.lex()
     tabelaSimbolos = []
