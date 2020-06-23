@@ -245,7 +245,7 @@ def executarLexico(data):
     lexer = lex.lex()
     tabelaSimbolos = []
     tabelaSimboloscount = 600
-    #data = " Int batata = 3.5 float bb = 12.21e3 a_0 'a' Program If ( ) Bool Bool == \"stringtest\" + - = If ( -5 ) Bool Bool == + - = If (  ) Bool Bool == + - = While Int"
+    # data = " Int batata = 3.5 float bb = 12.21e3 a_0 'a' Program If ( ) Bool Bool == \"stringtest\" + - = If ( -5 ) Bool Bool == + - = If (  ) Bool Bool == + - = While Int"
 
     Cabecalho = '''
     EQUIPE	E04	\n
@@ -265,14 +265,14 @@ def executarLexico(data):
             break      # No more input
 
         if tok.type in Dic_Reserved_Atom_Cod:
-            SaidaLex += tok.type + " , " + tok.value + " , " +  Dic_Reserved_Atom_Cod[tok.type] + " , " + "none"+" , "+  str(getlinha(tok.lexpos)) +"\n"
+            SaidaLex += tok.type + " , " + tok.value + " , " +  Dic_Reserved_Atom_Cod[tok.type] + " , " + "none"+" , " + str(getlinha(tok.lexpos)) +"\n"
         
         elif tok.type in Dic_not_Reserved_Atom:
-            SaidaLex += tok.type + " , " +tok.value + " , " +  "none" + " , " + str(tabelaSimboloscount) +" , "+  str(getlinha(tok.lexpos)) +"\n"
+            SaidaLex += tok.type + " , " + tok.value + " , " + "none" + " , " + str(tabelaSimboloscount) + "," + str(getlinha(tok.lexpos)) +"\n"
             tabelaSimbolos.append({
                 "tipo": str(tok.type),
-                "value":str(tok.value),
-                "indice":str(tabelaSimboloscount)
+                "value": str(tok.value),
+                "indice": str(tabelaSimboloscount)
             })
             tabelaSimboloscount += 1
             
