@@ -19,6 +19,16 @@ def get_file_by_name(name):
     return content
 
 
+def archives_out(data_tab, data_lex, name):
+    lex_file = open(name + '.LEX', 'a')
+    lex_file.write(data_lex + '\n')
+    lex_file.close()
+    tab_file = open(name + '.TAB', 'a')
+    tab_file.write(data_tab + '\n')
+    tab_file.close()
+    return 1
+
+
 def main():
     print("o-script compiler ver 0.1")
     text = str
@@ -34,6 +44,7 @@ def main():
         except:
             print("wrong name of file or file doesn't exist")
     mainLex.executarLexico(text)
+    print("compilation finished!")
     os.system("pause")
 
 
