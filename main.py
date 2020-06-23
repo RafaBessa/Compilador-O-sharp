@@ -23,14 +23,15 @@ def main():
     user_path = input("enter your file: ")
     if os.path.isabs(user_path):
         try:
-            get_file_content(user_path)
+            text = get_file_content(user_path)
         except:
             print("file doesn't exist")
     else:
         try:
-            get_file_by_name(user_path)
+            text = get_file_by_name(user_path)
         except:
             print("wrong name of file or file doesn't exist")
+    mainLex.executarLexico(text)
 
 
 if __name__ == "__main__":

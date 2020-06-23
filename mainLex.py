@@ -247,10 +247,7 @@ def executarLexico(data):
     tabelaSimboloscount = 600
     #data = " Int batata = 3.5 float bb = 12.21e3 a_0 'a' Program If ( ) Bool Bool == \"stringtest\" + - = If ( -5 ) Bool Bool == + - = If (  ) Bool Bool == + - = While Int"
 
-
-    lexer.input(data)
-
-    Cabeçalho = '''
+    Cabecalho = '''
     EQUIPE	E04	\n
     COMPONENTES:     \n
     Nome	Email	Telefone\n
@@ -258,13 +255,13 @@ def executarLexico(data):
     Pedro De Carvalho Marcelo	xxxxx	xxx\n
     Neilton Melgaço Lisboa Junior	xxx	xxx\n
     '''
-    SaidaLex = Cabeçalho + "\n" + "tipo, Elemento lexico , Codigo , indicie tabela simb , linha  \n" 
+    SaidaLex = Cabecalho + "\n" + "tipo, Elemento lexico , Codigo , indicie tabela simb , linha  \n"
 
     # Tokenize
     while True:
         tok = lexer.token()
-        #tok lexpos, lineno,type,value
-        if not tok: #quando tok fica vazio 
+        # tok lexpos, lineno,type,value
+        if not tok: # quando tok fica vazio
             break      # No more input
 
         if tok.type in Dic_Reserved_Atom_Cod:
@@ -280,14 +277,11 @@ def executarLexico(data):
             tabelaSimboloscount += 1
             
         else:
-            pass #caso n seja um atomo reservado, puxa a tabela de simbolos
+            pass  # caso n seja um atomo reservado, puxa a tabela de simbolos
 
-        
-        print(tok) # saida = token, simbolo, linha,coluna
-                    #linha tem que ser feita uma função especial
+        print(tok)  # saida = token, simbolo, linha,coluna linha tem que ser feita uma função especial
 
     # f = open("meuteste.LEX", "w")
     # f.write(SaidaLex)
     # f.close()
-    print(SaidaLex)
     return SaidaLex, lexer.token()
