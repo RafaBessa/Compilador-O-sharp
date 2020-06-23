@@ -193,7 +193,7 @@ def getlinha(pos):
     pos = math.floor(pos/tamlinha)
     return pos
 
-def executarLexico(data)
+def executarLexico(data):
     # Build the lexer
     lexer = lex.lex()
     tabelaSimbolos = []
