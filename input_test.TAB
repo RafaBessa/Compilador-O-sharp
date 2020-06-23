@@ -1,1 +1,10 @@
-000
+tipo, value, indice 
+function, batata, 600
+floatNum, 3.5, 601
+function, float, 602
+function, bb, 603
+floatNum, 12.21e3, 604
+function, a_0, 605
+character, 'a', 606
+constantString, "stringtest", 607
+intergerNum, 5, 608
