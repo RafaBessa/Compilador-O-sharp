@@ -19,8 +19,8 @@ def main():
         except:
             print("wrong name of file or file doesn't exist, wrong path")
     try:
-        lex_out = mainLex.executarLexico(text)
-        tx.archives_out(lex_out, '0', '0')
+        lex_out, tolkens, TAB = mainLex.executarLexico(text)
+        tx.archives_out(lex_out, TAB, '0')
         print("compilation finished!")
     except:
         print("invalid archive path")
