@@ -185,8 +185,8 @@ def getlinha(pos):
     return pos
 
 
-tabelaSimboloscount = 600
-strTAB =  "tipo, value, indice \n"
+#tabelaSimboloscount = 600
+
 
 
 def executarLexico(data):
@@ -207,7 +207,7 @@ def executarLexico(data):
     Neilton Melgaço Lisboa Junior	xxx	xxx\n
     '''
     SaidaLex = Cabeçalho + "\n" + "tipo, Elemento lexico , Codigo , indicie tabela simb , linha  \n"
-
+    strTAB =  "tipo, value, indice \n"
     # Tokenize
     while True:
         tok = lexer.token()
