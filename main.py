@@ -26,7 +26,7 @@ def main():
         print("compilation finished!")
         os.system("pause")
         return 0
-    except:
+    except: 
         print("invalid written archive path")
         print("compilation failed!")
         os.system("pause")
