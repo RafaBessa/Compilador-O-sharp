@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['C:\\Users\\pedro\\PycharmProjects\\Compilador-O-sharp'],
+             pathex=['C:\\Users\\bessa\\Documents\\GitHub\\Compilador-O-sharp'],
              binaries=[],
              datas=[],
              hiddenimports=[],

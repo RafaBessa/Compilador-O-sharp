@@ -174,7 +174,9 @@ t_ignore = " \t"
 
 # Error handling rule
 def t_error(t):
+
     print("Illegal character '%s'" % t.value[0])
+    raise Exception("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
 
 
@@ -199,13 +201,13 @@ def executarLexico(data):
     lexer.input(data)
 
     Cabeçalho = '''
-    EQUIPE	E04	\n
-    COMPONENTES:     \n
-    Nome	Email	Telefone\n
-    Rafael Bessa Loureiro	xxx	xxx\n
-    Pedro De Carvalho Marcelo	xxxxx	xxx\n
-    Neilton Melgaço Lisboa Junior	xxx	xxx\n
-    '''
+EQUIPE	E04	\n
+COMPONENTES:     \n
+Nome	Email	Telefone\n
+xxx\n
+xxxx\n
+xxx\n
+'''
     SaidaLex = Cabeçalho + "\n" + "tipo, Elemento lexico , Codigo , indicie tabela simb , linha  \n"
     strTAB =  "tipo, value, indice \n"
     # Tokenize
