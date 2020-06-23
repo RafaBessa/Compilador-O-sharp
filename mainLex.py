@@ -175,7 +175,6 @@ t_ignore = " \t"
 # Error handling rule
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
-
     t.lexer.skip(1)
 
 
@@ -229,11 +228,11 @@ def executarLexico(data):
         else:
             pass  # caso n seja um atomo reservado, puxa a tabela de simbolos
 
-        print(tok)  # saida = token, simbolo, linha,coluna
+       # print(tok)  # saida = token, simbolo, linha,coluna
         # linha tem que ser feita uma função especial
 
     # f = open("meuteste.LEX", "w")
     # f.write(SaidaLex)
     # f.close()
-    print(SaidaLex)
+    # print(SaidaLex)
     return SaidaLex, lexer.token()
