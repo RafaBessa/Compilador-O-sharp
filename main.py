@@ -20,6 +20,8 @@ def get_file_by_name(name):
 
 
 def main():
+    print("o-script compiler ver 0.1")
+    text = str
     user_path = input("enter your file: ")
     if os.path.isabs(user_path):
         try:
@@ -32,6 +34,7 @@ def main():
         except:
             print("wrong name of file or file doesn't exist")
     mainLex.executarLexico(text)
+    os.system("pause")
 
 
 if __name__ == "__main__":
