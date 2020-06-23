@@ -21,16 +21,14 @@ def main():
             print("wrong name of file or file doesn't exist, wrong path")
             return -1
     try:
-        lex_out, tolkens, TAB = mainLex.executarLexico(text)
-        tx.archives_out(lex_out, TAB, '0')
+        lex_out, tolkens,  = mainLex.executarLexico(text)
+        tx.archives_out(lex_out, "0", user_path)
         print("compilation finished!")
         os.system("pause")
-        return 0
     except:
         print("invalid written archive path")
         print("compilation failed!")
         os.system("pause")
-        return -1
 
 
 if __name__ == "__main__":

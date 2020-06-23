@@ -20,7 +20,7 @@ def archives_out(data_lex, data_tab, name):
     else:
         new_name = name
     lex_file = open(new_name + '.LEX', 'a')
-    lex_file.write(data_lex[0])
+    lex_file.write(data_lex)
     lex_file.close()
     tab_file = open(new_name + '.TAB', 'a')
     tab_file.write(data_tab)

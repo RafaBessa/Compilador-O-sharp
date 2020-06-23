@@ -184,12 +184,16 @@ def getlinha(pos):
     pos = math.floor(pos / tamlinha)
     return pos
 
-    tabelaSimboloscount = 600
+
+tabelaSimboloscount = 600
+strTAB =  "tipo, value, indice \n"
+
+
 def executarLexico(data):
     # Build the lexer
     lexer = lex.lex()
     tabelaSimbolos = []
-    strTAB =  "tipo, value, indice \n"
+    tabelaSimboloscount = 600
     # data = " Int batata = 3.5 float bb = 12.21e3 a_0 'a' Program If ( ) Bool Bool == \"stringtest\" + - = If ( -5 ) Bool Bool == + - = If (  ) Bool Bool == + - = While Int"
 
     lexer.input(data)
@@ -212,24 +216,18 @@ def executarLexico(data):
             break  # No more input
 
         if tok.type in Dic_Reserved_Atom_Cod:
-            posTabSimb = "none"
-            if tok.type in Dic_not_Reserved_Atom:
-                strTAB += str(tok.type) + ", " +str(tok.value)+", "+ str(tabelaSimboloscount)+"\n"
-         
-                posTabSimb = str(tabelaSimboloscount)
-                tabelaSimboloscount += 1
             SaidaLex += tok.type + " , " + tok.value + " , " + Dic_Reserved_Atom_Cod[
-                tok.type] + " , " + posTabSimb + " , " + str(getlinha(tok.lexpos)) + "\n"
+                tok.type] + " , " + "none" + " , " + str(getlinha(tok.lexpos)) + "\n"
 
-        # elif tok.type in Dic_not_Reserved_Atom:
-        #     SaidaLex += tok.type + " , " + tok.value + " , " + "none" + " , " + str(tabelaSimboloscount) + "," + str(
-        #         getlinha(tok.lexpos)) + "\n"
-        #     tabelaSimbolos.append({
-        #         "tipo": str(tok.type),
-        #         "value": str(tok.value),
-        #         "indice": str(tabelaSimboloscount)
-        #     })
-        #     tabelaSimboloscount += 1
+        elif tok.type in Dic_not_Reserved_Atom:
+            SaidaLex += tok.type + " , " + tok.value + " , " + "none" + " , " + str(tabelaSimboloscount) + "," + str(
+                getlinha(tok.lexpos)) + "\n"
+            tabelaSimbolos.append({
+                "tipo": str(tok.type),
+                "value": str(tok.value),
+                "indice": str(tabelaSimboloscount)
+            })
+            tabelaSimboloscount += 1
 
         else:
             pass  # caso n seja um atomo reservado, puxa a tabela de simbolos
@@ -241,8 +239,4 @@ def executarLexico(data):
     # f.write(SaidaLex)
     # f.close()
     # print(SaidaLex)
-
-
-
-
-    return SaidaLex, lexer.token(), strTAB
+    return SaidaLex, lexer.token()
